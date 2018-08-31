@@ -219,7 +219,8 @@
 			//添加供应信息
 			$(".supplyAdd").click(function(){
 				if(!$(".supplyStr").val()==''){
-					establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel')
+					establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel');
+					$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
 				}else{
 					console.log("信息不能为空")
 				}
@@ -228,9 +229,10 @@
 			$(".supplyStr").keydown(function(e){
 				if (e.keyCode == 13) {
 					if(!$(".supplyStr").val()==''){
-						establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel')
+						establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel');
+						$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
 					}else{
-						console.log("信息不能为空")
+						console.log("信息不能为空");
 					}
                 }
 			})
@@ -244,35 +246,36 @@
 			//添加求购信息
 			$(".seekpurchaseAdd").click(function(){
 				if(!$(".seekpurchaseStr").val()==''){
-					establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel')
+					establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel');
+					$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
 				}else{
-					console.log("信息不能为空")
+					console.log("信息不能为空");
 				}
 			})
 			//添加求购信息
 			$(".seekpurchaseStr").keydown(function(e){
 				if (e.keyCode == 13) {
 					if(!$(".seekpurchaseStr").val()==''){
-						establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel')
+						establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel');
+						$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
 					}else{
-						console.log("信息不能为空")
+						console.log("信息不能为空");
 					}
                 }
 			})
 			//删除求购信息
 			$(".seekpurchasebox").on('click','.seekpurchaseDel',function(){
 				var index=$(this).parent().index();
-				$(".seekpurchasebox .purchaseAlertBox_listP").eq(index).remove()
+				$(".seekpurchasebox .purchaseAlertBox_listP").eq(index).remove();
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})			
 			
 			$("#abt").click(function(){
-				$(".purchaseAlert").show()
-				$(".purchaseAlertBox_list").css("padding","16px 50px 30px;")
+				$(".purchaseAlert").show();
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})
 			$(".purchaseAlertBoxDel img").click(function(){
-				$(".purchaseAlert").hide()
+				$(".purchaseAlert").hide();
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})
 			//添加节点函数；
@@ -285,11 +288,11 @@
 				for(var i=0;i<=strName.length-1;i++){
 					colIndex+=1;
 					if(color[colIndex]==undefined){
-						colIndex=0
+						colIndex=0;
 					}
 					list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + strName[i] + "<i class=\"" + cla + "\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
 				}
-				obj.html(list)
+				obj.html(list);
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			}
 		</script>
