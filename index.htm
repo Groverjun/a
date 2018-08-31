@@ -55,7 +55,7 @@
 			}
 			.purchaseAlertBoxDel img{cursor: pointer;}
 			.purchaseAlertBox_h1{
-				padding: 19px 0 0 36px;
+				padding: 27px 0 0 36px;
 				font-size: 18px;
 				color: #666666;
 				font-weight: bold;
@@ -72,9 +72,6 @@
 				padding:8px 0px 0 0px;
 				font-size: 14px;
 				color: #717171;
-				white-space: nowrap;
-			    text-overflow: ellipsis;
-			    overflow: hidden;
 			}
 			.purchaseAlertBox_userlist li{
 				margin-top: 10px;
@@ -88,7 +85,7 @@
 				border-bottom: 1px dotted  #717171;
 			}
 			.purchaseAlertBox_list{
-				padding: 16px  50px 30px;
+				padding: 0px 50px 27px;
 			}
 			.purchaseAlertBox_listP{
 				display: inline-block;
@@ -113,6 +110,10 @@
 				font-weight: bold;
 				font-size: 26px;
 				cursor: pointer;
+				display: none;
+			}
+			.purchaseAlertBox_listP:hover i{
+				display: block;
 			}
 			.purchaseAlertBox_form{
 				width: 482px;
@@ -156,12 +157,12 @@
 				<div id="boxHieght">
 					<h1 class="purchaseAlertBoxDel"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4N0VDMzFDOUFDRUQxMUU4OThEQkU5NTMyQ0RERkFBOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4N0VDMzFDQUFDRUQxMUU4OThEQkU5NTMyQ0RERkFBOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg3RUMzMUM3QUNFRDExRTg5OERCRTk1MzJDRERGQUE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg3RUMzMUM4QUNFRDExRTg5OERCRTk1MzJDRERGQUE4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+DjnrCAAAAHxJREFUeNp8kMENgCAMRYvpjNxwAcM2XjjrRd3CxZAm1dSfAkkT8nkPWkIp5SaitdVJ4xVbLazwpuE5gIVJbKCe9MFyxgCh9IMlYHMTShVhFDwpYYuTM2Dt7N0X3p5nhXfNL0+w8GFykQIOHb0Bvd/jAexKIuQBjFJ+BBgAcxYo6L9ZAxkAAAAASUVORK5CYII=" width="auto"/></h1>
 					<div class="purchaseAlertBox_head">
-						<div class="purchaseAlertBox_h1">
+						<div class="purchaseAlertBox_h1" style="padding-top: 19px;">
 							<i></i>公司信息
 						</div>
 						<div class="purchaseAlertBox_user ">
 							<div class="purchaseAlertBox_userlistB clearfix">
-								<ul class="purchaseAlertBox_userlist pull-left">
+								<ul class="purchaseAlertBox_userlist pull-left" style="width: 260px;">
 									<li>
 										<label>名称:</label>
 										<span>中工信融(北京)信息技术有限公司</span>
@@ -172,7 +173,7 @@
 									</li>
 									
 								</ul>
-								<ul class="purchaseAlertBox_userlist pull-right">
+								<ul class="purchaseAlertBox_userlist pull-right" style="width:180px;">
 									<li>
 										<label>行业:</label>
 										<span>数字营销整合外包平台</span>
@@ -267,6 +268,7 @@
 			
 			$("#abt").click(function(){
 				$(".purchaseAlert").show()
+				$(".purchaseAlertBox_list").css("padding","16px 50px 30px;")
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})
 			$(".purchaseAlertBoxDel img").click(function(){
@@ -279,7 +281,7 @@
 				var color=["#1D7DFF","#5CB85C","#5BC0DE","#F0AD4E","#D9534F"];
 				var strName=str;
 				var list='';
-				strName = strName.split(",");
+				strName = strName.split("，");
 				for(var i=0;i<=strName.length-1;i++){
 					colIndex+=1;
 					if(color[colIndex]==undefined){
