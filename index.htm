@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{margin: 0;padding: 0;}
+			.purchaseAlert *{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-size: 14px;
+				font-weight: normal;
+				font-style: normal;
+				box-sizing: border-box;
+				font-family: "微软雅黑";
+				text-decoration: none;
+			}
+			.purchaseAlert{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				display: none;
+				top: 0;
+			}
+			.clearfix:after{
+			  content: "."; 
+			  display: block; 
+			  height: 0; 
+			  clear: both; 
+			  visibility: hidden;  
+			}
+			.pull-left{
+				float: left;
+			}
+			.pull-right{
+				float: right;
+			}
+			.purchaseAlertBox{
+				position: absolute;
+				width: 585px;
+				height: auto;
+				background: #fff;
+				border-radius: 10px;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			.purchaseAlertBoxDel{
+				margin: 20px 20px 0 0;
+				text-align: right;
+			}
+			.purchaseAlertBoxDel img{cursor: pointer;}
+			.purchaseAlertBox_h1{
+				padding: 19px 0 0 36px;
+				font-size: 18px;
+				color: #666666;
+				font-weight: bold;
+			}
+			.purchaseAlertBox_h1>i{
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				background: #0090ff;
+				display: inline-block;
+				margin-right: 8px;
+			}
+			.purchaseAlertBox_userlist{
+				padding:8px 0px 0 0px;
+				font-size: 14px;
+				color: #717171;
+				white-space: nowrap;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			}
+			.purchaseAlertBox_userlist li{
+				margin-top: 10px;
+			}
+			.purchaseAlertBox_userlistB{
+				width: 483px;
+				margin: auto;
+			}
+			.purchaseAlertBox_user{
+				padding-bottom: 30px;
+				border-bottom: 1px dotted  #717171;
+			}
+			.purchaseAlertBox_list{
+				padding: 16px  50px 30px;
+			}
+			.purchaseAlertBox_listP{
+				display: inline-block;
+				padding:6px 16px;
+				border-radius: 2000px;
+				border: 1px solid #1D7DFF;
+				position: relative;
+				color: #1D7DFF;
+				margin: 10px;
+			}
+			.purchaseAlertBox_listP>i{
+				position: absolute;
+				width: 16px;
+				height: 16px;
+				border-radius: 50%;
+				top: -5px;
+				right: -3px;
+				background: #1D7DFF;
+				text-align: center;
+				line-height: 11px;
+				color: #fff;
+				font-weight: bold;
+				font-size: 26px;
+				cursor: pointer;
+			}
+			.purchaseAlertBox_form{
+				width: 482px;
+				margin: auto;
+				height: 35px;
+				
+				position: relative;
+			}
+			.purchaseAlertBox_form>input{
+				position: absolute;
+				width: 100%;
+				height: 35px;
+				border:1px solid #cccccc;
+				text-indent: 1em;
+				outline: none;
+			}
+			.purchaseAlertBox_middle{
+				border-bottom: 1px dotted  #717171;
+				padding-bottom: 32px;
+			}
+			.purchaseAlertBox_form>a{
+				width: 100px;
+				height: 35px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				text-align: center;
+				line-height: 35px;
+				background: #347fff;
+				color: #fff;
+			}
+			.purchaseAlertBox_foot{
+				padding-bottom: 55px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="abt">打开</button>
+		<div class="purchaseAlert">
+			<div class="purchaseAlertBox">
+				<div id="boxHieght">
+					<h1 class="purchaseAlertBoxDel"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4N0VDMzFDOUFDRUQxMUU4OThEQkU5NTMyQ0RERkFBOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4N0VDMzFDQUFDRUQxMUU4OThEQkU5NTMyQ0RERkFBOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg3RUMzMUM3QUNFRDExRTg5OERCRTk1MzJDRERGQUE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg3RUMzMUM4QUNFRDExRTg5OERCRTk1MzJDRERGQUE4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+DjnrCAAAAHxJREFUeNp8kMENgCAMRYvpjNxwAcM2XjjrRd3CxZAm1dSfAkkT8nkPWkIp5SaitdVJ4xVbLazwpuE5gIVJbKCe9MFyxgCh9IMlYHMTShVhFDwpYYuTM2Dt7N0X3p5nhXfNL0+w8GFykQIOHb0Bvd/jAexKIuQBjFJ+BBgAcxYo6L9ZAxkAAAAASUVORK5CYII=" width="auto"/></h1>
+					<div class="purchaseAlertBox_head">
+						<div class="purchaseAlertBox_h1">
+							<i></i>公司信息
+						</div>
+						<div class="purchaseAlertBox_user ">
+							<div class="purchaseAlertBox_userlistB clearfix">
+								<ul class="purchaseAlertBox_userlist pull-left">
+									<li>
+										<label>名称:</label>
+										<span>中工信融(北京)信息技术有限公司</span>
+									</li>
+									<li class="">
+										<label>地址:</label>
+										<span>北京市朝阳区保利东方中心A座17层</span>
+									</li>
+									
+								</ul>
+								<ul class="purchaseAlertBox_userlist pull-right">
+									<li>
+										<label>行业:</label>
+										<span>数字营销整合外包平台</span>
+									</li>
+									<li class="">
+										<label>电话:</label>
+										<span>400-0099-990</span>
+									</li>
+								</ul>							
+							</div>
+	
+						</div>
+					</div>
+					<div class="purchaseAlertBox_middle">
+						<div class="purchaseAlertBox_h1">
+							<i></i>供应信息
+						</div>
+						<div class="purchaseAlertBox_list supplyBox">
+							<!--添加内容-->
+						</div>
+						<div class="purchaseAlertBox_form">
+							<input type="text" placeholder="请输入新标签关键词，请务必使用“ , ”分隔开" class="supplyStr"/>
+							<a href="javascript:void(0)" class="supplyAdd">添加+</a>
+						</div>
+					</div>
+					<div class="purchaseAlertBox_foot">
+						<div class="purchaseAlertBox_h1">
+							<i></i>求购信息
+						</div>
+						<div class="purchaseAlertBox_list seekpurchasebox">
+							<!--添加内容-->
+						</div>
+						<div class="purchaseAlertBox_form">
+							<input type="text" placeholder="请输入新标签关键词，请务必使用“ , ”分隔开" class="seekpurchaseStr"/>
+							<a href="javascript:void(0)" class="seekpurchaseAdd">添加+</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://groverjun.github.io/doufu/js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//添加供应信息
+			$(".supplyAdd").click(function(){
+				if(!$(".supplyStr").val()==''){
+					establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel')
+				}else{
+					console.log("信息不能为空")
+				}
+			})
+			//添加供应信息
+			$(".supplyStr").keydown(function(e){
+				if (e.keyCode == 13) {
+					if(!$(".supplyStr").val()==''){
+						establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel')
+					}else{
+						console.log("信息不能为空")
+					}
+                }
+			})
+			//删除供应信息
+			$(".supplyBox").on('click','.supplyDel',function(){
+				var index=$(this).parent().index();
+				$(".supplyBox .purchaseAlertBox_listP").eq(index).remove()
+				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+			})
+			
+			//添加求购信息
+			$(".seekpurchaseAdd").click(function(){
+				if(!$(".seekpurchaseStr").val()==''){
+					establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel')
+				}else{
+					console.log("信息不能为空")
+				}
+			})
+			//添加求购信息
+			$(".seekpurchaseStr").keydown(function(e){
+				if (e.keyCode == 13) {
+					if(!$(".seekpurchaseStr").val()==''){
+						establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel')
+					}else{
+						console.log("信息不能为空")
+					}
+                }
+			})
+			//删除求购信息
+			$(".seekpurchasebox").on('click','.seekpurchaseDel',function(){
+				var index=$(this).parent().index();
+				$(".seekpurchasebox .purchaseAlertBox_listP").eq(index).remove()
+				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+			})			
+			
+			$("#abt").click(function(){
+				$(".purchaseAlert").show()
+				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+			})
+			$(".purchaseAlertBoxDel img").click(function(){
+				$(".purchaseAlert").hide()
+				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+			})
+			//添加节点函数；
+			function establishNode(obj,str,cla){
+				var colIndex=-1;
+				var color=["#1D7DFF","#5CB85C","#5BC0DE","#F0AD4E","#D9534F"];
+				var strName=str;
+				var list='';
+				strName = strName.split(",");
+				for(var i=0;i<=strName.length-1;i++){
+					colIndex+=1;
+					if(color[colIndex]==undefined){
+						colIndex=0
+					}
+					list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + strName[i] + "<i class=\"" + cla + "\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
+				}
+				obj.html(list)
+				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+			}
+		</script>
+	</body>
+</html>
