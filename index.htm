@@ -23,7 +23,7 @@
 				background: rgba(0,0,0,0.5);
 				display: none;
 				top: 0;
-				overflow-y: auto;
+				overflow: auto;
 			}
 			.clearfix:after{
 			  content: "."; 
@@ -155,10 +155,20 @@
 				color: red;
 				padding: 5px 0 0 55px;
 			}
+			html,body{
+				height: 100%;
+			}
+			.main{
+				height: 100%;
+				overflow: auto;
+			}
 		</style>
 	</head>
-	<body>
-		<button id="abt">打开</button>
+	<body >
+		<div class="main">
+			<button id="abt">打开</button>
+			<div style="height: 2000px;"></div>
+		</div>
 		<div class="purchaseAlert">
 			<div class="purchaseAlertBox">
 				<div id="boxHieght">
@@ -205,7 +215,7 @@
 							<input type="text" placeholder="请输入新标签关键词，如有多个请务必使用“ , ”分隔开" class="supplyStr"/>
 							<a href="javascript:void(0)" class="supplyAdd">添加+</a>
 						</div>
-						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用中文“ , ”分隔开</p>
+						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用“ , ”分隔开</p>
 					</div>
 					<div class="purchaseAlertBox_foot">
 						<div class="purchaseAlertBox_h1">
@@ -218,7 +228,7 @@
 							<input type="text" placeholder="请输入新标签关键词，如有多个请务必使用“ , ”分隔开" class="seekpurchaseStr"/>
 							<a href="javascript:void(0)" class="seekpurchaseAdd">添加+</a>
 						</div>
-						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用中文“ , ”分隔开</p>
+						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用“ , ”分隔开</p>
 					</div>
 				</div>
 			</div>
@@ -302,14 +312,23 @@
 				$(".purchaseAlert").hide();
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})
+			//数据回显
+			function addNode(){
+				var reg = /[\u3002|\.|/;|/'|/,|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g;
+				var str="测试1，测试2；测试5’测试6"
+				console.log(str.replace(reg, ','))
+			}
+			addNode()
 			//添加节点函数；
 			function establishNode(obj,str,cla,fun){
+				var reg = /[\u3002|\.|/;|/'|/,|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g;
 				var colIndex=-1;
 				var color=["#1D7DFF","#5CB85C","#5BC0DE","#F0AD4E","#D9534F"];
 				var strName=str;
 				var list='';
 				var num=Math.floor(Math.random()*5+1);
-				strName = strName.split("，");
+				var strName = strName.replace(reg, ',');
+				strName = strName.split(",");
 				for(var i=0;i<=strName.length-1;i++){
 					colIndex+=1;
 					if(strName.length==1){
@@ -318,12 +337,19 @@
 					if(color[colIndex]==undefined){
 						colIndex=0;
 					}
-					list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + strName[i] + "<i class=\"" + cla + "\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
+					if(!strName[i]==''){
+						list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + strName[i] + "<i class=\"" + cla + "\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
+					}
 				}
 				obj.html(obj.html()+list);
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 				fun(strName)
 			}
+			              
+		                    
+		      $("#abt1").click(function(){
+		      	$('html ,body').scrollTop(0);
+		      })
 		</script>
 	</body>
 </html>
