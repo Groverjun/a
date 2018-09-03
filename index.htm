@@ -39,7 +39,7 @@
 			}
 			.purchaseAlertBox{
 				position: absolute;
-				width: 585px;
+				width: 785px;
 				height: auto;
 				background: #fff;
 				border-radius: 10px;
@@ -67,6 +67,7 @@
 				background: #0090ff;
 				display: inline-block;
 				margin-right: 8px;
+				position: relative;
 				top: -4px;
 			}
 			.purchaseAlertBox_userlist{
@@ -78,7 +79,7 @@
 				margin-top: 10px;
 			}
 			.purchaseAlertBox_userlistB{
-				width: 483px;
+				width: 683px;
 				margin: auto;
 			}
 			.purchaseAlertBox_user{
@@ -117,7 +118,7 @@
 				display: block;
 			}
 			.purchaseAlertBox_form{
-				width: 482px;
+				width: 682px;
 				margin: auto;
 				height: 35px;
 				position: relative;
@@ -147,6 +148,11 @@
 			}
 			.purchaseAlertBox_foot{
 				padding-bottom: 55px;
+			}
+			.purchaseAlertBox_warning{
+				font-size: 12px;
+				color: red;
+				padding: 5px 0 0 55px;
 			}
 		</style>
 	</head>
@@ -195,9 +201,10 @@
 							<!--添加内容-->
 						</div>
 						<div class="purchaseAlertBox_form">
-							<input type="text" placeholder="请输入新标签关键词，请务必使用“ , ”分隔开" class="supplyStr"/>
+							<input type="text" placeholder="请输入新标签关键词，如有多个请务必使用“ , ”分隔开" class="supplyStr"/>
 							<a href="javascript:void(0)" class="supplyAdd">添加+</a>
 						</div>
+						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用中文“ , ”分隔开</p>
 					</div>
 					<div class="purchaseAlertBox_foot">
 						<div class="purchaseAlertBox_h1">
@@ -207,9 +214,10 @@
 							<!--添加内容-->
 						</div>
 						<div class="purchaseAlertBox_form">
-							<input type="text" placeholder="请输入新标签关键词，请务必使用“ , ”分隔开" class="seekpurchaseStr"/>
+							<input type="text" placeholder="请输入新标签关键词，如有多个请务必使用“ , ”分隔开" class="seekpurchaseStr"/>
 							<a href="javascript:void(0)" class="seekpurchaseAdd">添加+</a>
 						</div>
+						<p class="purchaseAlertBox_warning">请输入新标签关键词，如有多个请务必使用中文“ , ”分隔开</p>
 					</div>
 				</div>
 			</div>
@@ -219,8 +227,12 @@
 			//添加供应信息
 			$(".supplyAdd").click(function(){
 				if(!$(".supplyStr").val()==''){
-					establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel');
+					establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel',function(arr){
+						console.log(arr)
+					});
+					
 					$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
+					$(".supplyStr").val('')
 				}else{
 					console.log("信息不能为空")
 				}
@@ -229,8 +241,11 @@
 			$(".supplyStr").keydown(function(e){
 				if (e.keyCode == 13) {
 					if(!$(".supplyStr").val()==''){
-						establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel');
+						establishNode($(".supplyBox"),$(".supplyStr").val(),'supplyDel',function(arr){
+							console.log(arr)
+						});
 						$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
+						$(".supplyStr").val('')
 					}else{
 						console.log("信息不能为空");
 					}
@@ -246,8 +261,11 @@
 			//添加求购信息
 			$(".seekpurchaseAdd").click(function(){
 				if(!$(".seekpurchaseStr").val()==''){
-					establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel');
+					establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel',function(arr){
+						console.log(arr)
+					});
 					$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
+					$(".seekpurchaseStr").val('')
 				}else{
 					console.log("信息不能为空");
 				}
@@ -256,8 +274,11 @@
 			$(".seekpurchaseStr").keydown(function(e){
 				if (e.keyCode == 13) {
 					if(!$(".seekpurchaseStr").val()==''){
-						establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel');
+						establishNode($(".seekpurchasebox"),$(".seekpurchaseStr").val(),'seekpurchaseDel',function(arr){
+						console.log(arr)
+					});
 						$(".purchaseAlertBox_list").css("padding","16px 50px 16px");
+						$(".seekpurchaseStr").val('')
 					}else{
 						console.log("信息不能为空");
 					}
@@ -266,6 +287,8 @@
 			//删除求购信息
 			$(".seekpurchasebox").on('click','.seekpurchaseDel',function(){
 				var index=$(this).parent().index();
+				console.log($(this).parent().text());
+				
 				$(".seekpurchasebox .purchaseAlertBox_listP").eq(index).remove();
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})			
@@ -279,21 +302,26 @@
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
 			})
 			//添加节点函数；
-			function establishNode(obj,str,cla){
+			function establishNode(obj,str,cla,fun){
 				var colIndex=-1;
 				var color=["#1D7DFF","#5CB85C","#5BC0DE","#F0AD4E","#D9534F"];
 				var strName=str;
 				var list='';
+				var num=Math.floor(Math.random()*5+1);
 				strName = strName.split("，");
 				for(var i=0;i<=strName.length-1;i++){
 					colIndex+=1;
+					if(strName.length==1){
+						colIndex=num;
+					}
 					if(color[colIndex]==undefined){
 						colIndex=0;
 					}
 					list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + strName[i] + "<i class=\"" + cla + "\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
 				}
-				obj.html(list);
+				obj.html(obj.html()+list);
 				$(".purchaseAlertBox").height($("#boxHieght").height()+20);
+				fun(strName)
 			}
 		</script>
 	</body>
