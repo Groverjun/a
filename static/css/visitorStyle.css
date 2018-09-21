@@ -161,13 +161,14 @@ cursor: pointer;
 	text-indent: 1em;
 }
 .visitor_input button{
-	height: 37px;
+	height: 36px;
 	border: 1px solid #3380ff;
 	width: 100px;
 	background: #3380ff;
 	color: #fff;
 	position: relative;
 	left: -5px;
+	top: 1px;
 	cursor: pointer;
 	outline: none;
 }
