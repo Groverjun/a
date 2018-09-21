@@ -1,0 +1,267 @@
+@charset "utf-8";
+body{margin: 0;padding: 0;}
+.visitor{
+	position: fixed;
+	background: rgba(0,0,0,0.5);
+	margin: auto ;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	display: none;
+}
+.clearfix:after{
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+}
+.visitor *{box-sizing: border-box;margin: 0;padding: 0;list-style: none;font-style: normal;}
+#visitor_height{
+	position: absolute;
+	width: 850px;
+	margin:50px auto;
+	left: 0;
+	right: 0;
+	top: 0%;
+	z-index: 100;	
+	background: #fff;
+	padding-bottom: 20px;
+}
+.visitorH1{
+	text-align: center;
+	padding: 10px 0;
+	margin: 0;
+	color: #fff;
+	font-size: 18px;
+	font-weight: normal;
+	background: #0076d7;
+}
+.informaction{
+	padding: 32px 40px;
+}
+.visitorH2{
+	color: #0076d7;
+	font-size: 18px;
+	padding-bottom: 23px;
+}
+.visitorH2 i{
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: #0076d7;
+	margin-right: 10px;
+	position: relative;
+	top: -4px;
+}
+.visitorList{
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	padding-left: 15px;
+}
+.visitorList>ul{
+	float: left;
+}
+.visitorList>ul:nth-child(1){margin-right: 20px;}
+.visitorList label{
+	width: 70px;
+	display: inline-block;
+	font-weight: bold;
+	color: #666;
+}
+.visitorList li{
+	padding-bottom: 10px;
+}
+.visitorList li input{
+	height: 30px;
+	width: 335px;
+}
+.visitorBg{
+	padding: 14px 0 14px 17px;
+	background: #f7f7f7;
+	font-size: 14px;
+}
+.visitorBg label{
+	width: 70px;
+	display: inline-block;
+	font-weight: bold;
+	color: #666;
+	
+}
+.visitorBg ul li{
+	padding-bottom: 22px;
+}
+.visitorBg ol{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 40px;
+}
+.visitorBg ol li{
+	float: left;
+}
+.visitorBg ol li:nth-child(even){
+	margin: 0 20px;
+}
+.informactionOne{
+	border-bottom: 1px dotted #eee;
+}
+.check{
+	padding-left: 14px;
+	display: flex;
+	font-size: 14px;
+}
+.check>label{
+	width: 86px;
+	float: left;
+}
+.check>div{float: left;}
+.check ul{
+	width: 664px;
+	display: flex;
+	flex-flow: wrap-reverse;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 18px;
+}
+.check ul li{
+	display: flex;
+	align-items: center;
+	float: left;
+	margin-right: 20px;
+}
+.check ul li:last-child{margin: 0;}
+.check ul li input{margin-right: 5px;}
+.check  .listCheckboxT{
+	justify-content: inherit;
+}
+.check  .listCheckboxT li{
+	margin-right: 40px;
+}
+.visitor_input{
+	padding-left: 14px;
+	font-size: 14px;
+}
+.visitor_input input{
+	width: 560px;
+	height: 36px;
+	text-indent: 1em;
+}
+.visitor_input button{
+	height: 37px;
+	border: 1px solid #3380ff;
+	width: 100px;
+	background: #3380ff;
+	color: #fff;
+	position: relative;
+	left: -5px;
+	cursor: pointer;
+	outline: none;
+}
+.visitorWords{
+	padding: 15px 0;
+}
+.visitorForm{
+	padding-left: 14px;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
+}
+.visitorForm>ul{
+	float: left;
+}
+.visitorForm>ul:first-child{
+	margin-right: 75px;
+}
+.visitorForm .visitorForm_list1 label{
+	display: inline-block;
+	width: 87px;
+}
+.visitorForm .visitorForm_list2 label{
+	display: inline-block;
+	width: 100px;
+}
+.visitorForm li{
+	padding-bottom: 20px;
+}
+.visitorForm li input,select{
+	height: 30px;
+}
+.visitorForm li select{
+	width: 98px;
+}
+.remarks{
+	padding-left: 14px;
+	font-size: 14px;
+	display: flex;
+	
+}
+.remarks label{
+	width: 90px;
+}
+.remarks textarea{
+	width: 668px;
+	min-width: 668px;
+	max-width: 668px;
+	min-height: 100px;
+	max-height: 100px;
+	
+}
+.visitor_abt{
+	text-align: center;
+	padding: 20px 0 0;
+}
+.visitor_abt button{
+	height: 43px;
+	width: 143px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	background: #bfbfbf;
+	color: #666;
+	margin: 0 35px;
+}
+.visitor_abt  .visitor_submit{
+	background: #3380ff;
+	color: #fff;
+}
+.visitorWords{
+	padding-left: 95px;
+}
+.purchaseAlertBox_listP{
+	display: inline-block;
+	padding:3px 16px;
+	border-radius: 2000px;
+	border: 1px solid #1D7DFF;
+	position: relative;
+	color: #1D7DFF;
+	margin: 5px;
+}
+.purchaseAlertBox_listP>i{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	top: -5px;
+	right: -3px;
+	background: #1D7DFF;
+	text-align: center;
+	line-height: 11px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 26px;
+	cursor: pointer;
+	display: none;
+}
+.purchaseAlertBox_listP:hover i{
+	display: block;
+}
+.purchaseAlertBox_form{
+	width: 682px;
+	margin: auto;
+	height: 35px;
+	position: relative;
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="static/css/visitorStyle.css"/>
+	</head>
+	<body>
+		<div style="height: 5000px;">
+			<a href="javascript:void(0)" id="abt">
+				打开
+			</a>
+		</div>
+		<div class="visitor">
+			<style id="scrollbar"></style>
+			<div id="visitor_height">
+				<div class="visitor_box">
+					<h2 class="visitorH1"><i></i>访客回访</h2>
+					<div class="informaction informactionOne">
+						<h2 class="visitorH2"><i></i>商机信息</h2>
+						<div class="visitorList clearfix">
+							<ul>
+								<li><label>所属渠道：</label><span>上海力企</span></li>
+								<li><label>主营业务：</label><span>各种门</span></li>
+								<li><label>来源：</label><input type="text" /></li>
+							</ul>
+							<ul>
+								<li><label>客户名称：</label><span>创纪文化传播（上海）有限公司</span></li>
+								<li><label>服务地域：</label><span>华东地区</span></li>
+								<li><label>商机类型：</label><span>回拨电话</span></li>
+							</ul>
+						</div>
+						<div class="visitorBg">
+							<ul>
+								<li>
+									<label>时间：</label>
+									<span>2018-09-10  08:27:22</span>
+								</li>
+								<li>
+									<label>内容：</label>
+									<span>访客电话：18605883667；通话开始时间：2018-09-10  08:27:54；</span>
+								</li>
+							</ul>
+							<ol class="clearfix">
+								<li>
+									<label>搜索词：</label>
+									<span>电梯门套效果图</span>
+								</li>
+								<li>
+									<label>搜索词：</label>
+									<span>电梯门套效果图</span>
+								</li>
+								<li>
+									<label>来源地域：</label>
+									<span>中国  湖北  武汉</span>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="informaction informactionTow">
+						<h2 class="visitorH2"><i></i>商机信息</h2>
+						<div class="check clearfix">
+							<label>商机状态：</label>
+							<div class="listCheckbox">
+								<ul class="clearfix">
+									<li><input type="checkbox" id="chec1"/><label for="chec1">与客户洽谈中</label></li>
+									<li><input type="checkbox" id="chec2"/><label for="chec2">已与客户成交</label></li>
+									<li><input type="checkbox" id="chec3"/><label for="chec3">已通过其他渠道成交</label></li>
+									<li><input type="checkbox" id="chec4"/><label for="chec4">客户无法提供服务</label></li>
+									<li><input type="checkbox" id="chec5"/><label for="chec5">访客新需求</label></li>
+								</ul>
+								<ul class="listCheckboxT">
+									<li><input type="checkbox" id="chec6"/><label for="chec6">近期无需求</label></li>
+									<li><input type="checkbox" id="chec7" /><label for="chec7">空号</label></li>
+									<li><input type="checkbox" id="chec8"/><label for="chec8">无法接通</label></li>
+								</ul>
+							</div>
+						</div>
+						<div class="visitor_input">
+							<label>求购关键词：</label>
+							<input type="text" id="word_input" placeholder="请输入产品名称，如有多个产品，用","隔开" />
+							<button id="word_submit">添加+</button>
+						</div>
+						<div class="visitorWords" id="visitorWords">
+						</div>
+						<div class="visitorForm clearfix">
+							<ul class="visitorForm_list1">
+								<li>
+									<label>求购数量：</label>
+									<input type="text" />
+								</li>
+								<li>
+									<label>访客联系人：</label>
+									<input type="text" />	
+								</li>
+								<li>
+									<label>微信/QQ：</label>
+									<input type="text" />
+								</li>
+							</ul>
+							<ul class="visitorForm_list2">
+								<li>
+									<label>访客地区：</label>
+									<select name="省">
+										<option value="">河北</option>
+									</select>
+									<select name="市">
+										<option value="">保定</option>
+									</select>
+									<select name="县">
+										<option value="">白洋淀</option>
+									</select>
+								</li>
+								<li>
+									<label>访客联系方式：</label>
+									<input type="text" placeholder="18605883667" />
+								</li>
+							</ul>
+						</div>
+						<div class="remarks">
+							<label>添加备注：</label>
+							<textarea name=""  placeholder="备注："></textarea>
+						</div>
+						<div class="visitor_abt">
+							<button>取消</button>
+							<button class="visitor_submit">保存</button>
+						</div>
+					</div>
+
+					<!---->
+				</div>
+			</div>
+		</div>
+		<script src="https://groverjun.github.io/doufu/js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var visitorWords='1,2,3,,,,,';
+			var visitorWordsArr=[];
+			//回显数据
+			establishNode(visitorWords,function(html){
+				$("#visitorWords").html(html)
+			})
+			//添加
+			$("#word_submit").click(function(){
+				establishNode($("#word_input").val(),function(html,SpareArr){
+					
+					//添加成功
+					console.log(visitorWordsArr)//更新数据；
+					$("#visitorWords").html(html);
+					$("#word_input").val('')
+					$("#visitor_height").height($(".visitor_box").height()+20)
+					
+					//添加失败
+					console.log("=====================")
+					/*
+					        如果失败：重新赋值
+					 	visitorWordsArr=SpareArr
+					 */
+					console.log(SpareArr)
+				})
+			});
+			//删除
+			$("#visitorWords").on('click','.wordDel',function(){
+				var index=$(this).parent().index();
+				var delWord=visitorWordsArr[index];
+				console.log(delWord)//删除的值
+				var conf=confirm("确定要删除吗？");
+				if (conf==true){
+				  	//删除成功后
+					$("#visitorWords .purchaseAlertBox_listP").eq(index).remove();
+					$("#visitor_height").height($(".visitor_box").height()+20)
+					visitorWordsArr.splice(index,1);
+					console.log(visitorWordsArr)//删除后更新的值
+				}
+			});
+			//关闭
+			$(".visitor").click(function(e){
+				 $(this).hide();
+				 $("#scrollbar").html("")
+				  e.stopPropagation();   
+			});
+			$(".visitor_abt button").eq(0).click(function(){
+				$(".visitor").click()
+			})
+			$("#visitor_height").click(function(e){
+				e.stopPropagation(); 
+				return false
+			})
+			$("#abt").click(function(){
+				$(".visitor").show();
+				$("#visitor_height").height($(".visitor_box").height()+20)
+				$("#scrollbar").html("body::-webkit-scrollbar {display: none;}")
+			})
+			//添加节点函数
+			function establishNode(str,fun){
+				var reg = /[\u3002|\.|/;|/'|/,|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g;
+				var colIndex=-1;
+				var list='';
+				var color=["#1D7DFF","#5CB85C","#5BC0DE","#F0AD4E","#D9534F"];
+				var num=Math.floor(Math.random()*5+1);
+				var strName=str.replace(/\s/g,"");
+				var SpareArr=visitorWordsArr;
+				strName = strName.replace(reg, ',');
+				strName = strName.split(",");
+				strName = strName.filter(item => item);//去空
+				strName = Array.from(new Set(strName));//去重
+				visitorWordsArr=visitorWordsArr.concat(strName);
+				visitorWordsArr=Array.from(new Set(visitorWordsArr));//去重
+				for(var i=0;i<=visitorWordsArr.length-1;i++){
+					colIndex+=1;
+					if(visitorWordsArr.length==1){
+						colIndex=num;
+					}
+					if(color[colIndex]==undefined){
+						colIndex=0;
+					}
+					list+="<p class=\"purchaseAlertBox_listP\" style=\"border-color:" + color[colIndex] + ";color:" + color[colIndex] + " ;\">" + visitorWordsArr[i] + "<i class=\"wordDel\"  style=\"background:" + color[colIndex] + " ;\">-</i></p>";
+				}
+				fun(list,SpareArr)
+			}
+			$("#word_input").keydown(function(e){
+				if (e.keyCode == 13) {$("#word_submit").click()}
+			})
+		</script>
+	</body>
+</html>
