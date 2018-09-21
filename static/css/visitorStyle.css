@@ -92,7 +92,7 @@ body{margin: 0;padding: 0;}
 	
 }
 .visitorBg ul li{
-	padding-bottom: 22px;
+	padding-bottom: 12px;
 }
 .visitorBg ol{
 	display: flex;
@@ -223,7 +223,7 @@ cursor: pointer;
 }
 .visitor_abt{
 	text-align: center;
-	padding: 20px 0 0;
+	padding: 40px 0 0;
 }
 .visitor_abt button{
 	height: 43px;
