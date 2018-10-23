@@ -173,12 +173,12 @@ function chartArea(AllName,AllData,Alltime){
 		color:["rgba(255, 111, 0,0.8)","rgba(34, 176, 56,0.8)","rgba(0, 108, 255,0.8)"],
 	    tooltip:{
 	        trigger:'axis',
-	        borderColor:"#fff",
-	        backgroundColor:"#fff",
+	        borderColor:"rgba(0,0,0,0.8)",
+	        backgroundColor:"rgba(0,0,0,0.8)",
 	        padding:15,
 	        extraCssText: 'box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);',
 	        textStyle:{
-	        	color:"rgb(51,51,51)",
+	        	color:"rgb(255,255,255)",
 	        	
 	        },
 	        axisPointer:{
@@ -299,7 +299,6 @@ function chartArea(AllName,AllData,Alltime){
     	myChart.resize()
     })
 }			
-
 function mapFun(mapArr){
 	var dom = document.getElementById("map");
 	var myChart = echarts.init(dom);
@@ -553,7 +552,6 @@ function radarChart(val1,val2,max){
     	chart1.resize()
     })	
 }
-
 //时间
 var dateRange1 = new pickerDateRange('haoroomsinput', {
     aRecent7Days: 'aRecent7Days', //最近7天
@@ -567,3 +565,25 @@ var dateRange1 = new pickerDateRange('haoroomsinput', {
        console.log("开始时间："+obj.startDate+"结束时间:"+obj.endDate);
     }
 });
+//点击按钮
+$(".mFlow_list a").click(function(){
+	$(this).addClass("action").parent().siblings().find("a").removeClass("action")
+	if($(this).parent().index()==0){//全部
+		
+	}else if($(this).parent().index()==1){//昨天
+		
+	}else if($(this).parent().index()==2){//今天
+	}else if($(this).parent().index()==3){//最近七天
+		console.log($("#aRecent7Days").click())
+	}else if($(this).parent().index()==4){//最近30天
+		console.log($("#aRecent30Days").click())
+	}else{
+		alert("出错啦")
+	}
+	console.log($(this).parent().index())
+	
+});
+//折线图更新数据
+$("#brokenLineAbt").click(function(){
+	
+})

@@ -312,6 +312,7 @@ body {
     .moasFlow .radarChart .radarChart_body .radarChart_body_list {
       width: 235px;
       height: 645px;
+      overflow: auto;
       border-radius: 5px;
       border: 1px solid #eee;
       margin-top: 64px;

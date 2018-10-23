@@ -252,7 +252,19 @@ body{
                     color: #666666;
                     i{
                         font-size: 0.26rem;
+                        color: #fe893c;
+                        margin-right: 5px;
                     }
+                }
+            }
+            li:nth-child(2){
+                p{
+                    i{color: #22ad35;}
+                }
+            }
+            li:nth-child(3){
+                p{
+                    i{color: #006eff;}
                 }
             }
         }
@@ -280,6 +292,7 @@ body{
         .hotSpot{
             padding: 0.78rem 0 0rem 0.38rem;
             position: relative;
+            overflow: hidden;
             #map{
                 height: 5.28rem;
             }
@@ -298,6 +311,26 @@ body{
                     font-size: 0.22rem;
                     color: #333333;
                 }
+            }
+            .hotSpot_bg1,.hotSpot_bg2,.hotSpot_bg3{
+                position: absolute;
+                z-index: 100000;
+            }
+            .hotSpot_bg1{
+                width: 30%;
+                top: -18%;
+                left: -3%;
+            }
+            .hotSpot_bg2{
+               width: 43%;
+               bottom: -13%;
+               left: -3%;
+            }
+            .hotSpot_bg3{
+               width: 46%;
+               bottom: -13%;
+               right: -24%;
+               z-index: 1;
             }
         }
         .hotSpot_mapList{

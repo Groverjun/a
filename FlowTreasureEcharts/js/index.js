@@ -617,6 +617,7 @@ $("#radarChartAbt").click(function(){
 
 
 //日期选择
+console.log(moment().subtract(100, 'days').calendar())
 $('#date-range')
 .dateRangePicker()
 .bind('datepicker-apply',function(event,obj)
