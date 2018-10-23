@@ -153,12 +153,12 @@ body {
     height: 2.83rem;
     background: url(../img/mbg.jpg);
     color: #fff;
-    padding: 0.6rem 0.25rem 0.30rem; }
+    padding: 0.3rem 0.25rem 0.30rem; }
     body .mFlow .mFlow_title > h1 {
       font-size: 0.42rem; }
     body .mFlow .mFlow_title > p {
       font-size: 0.28rem;
-      padding: 0.16rem 0; }
+      padding: 0.12rem 0; }
     body .mFlow .mFlow_title > .line {
       width: 0.53rem;
       height: 4px;
@@ -170,8 +170,8 @@ body {
       padding-top: 0.2rem; }
       body .mFlow .mFlow_title > .mFlow_list li a {
         width: 1.30rem;
-        height: 0.5rem;
-        line-height: 0.5rem;
+        height: 0.6rem;
+        line-height: 0.6rem;
         display: block;
         border-radius: 20000px;
         border: 1px solid #fff;
@@ -201,7 +201,7 @@ body {
           border: 1px solid #a2a2a2;
           border-radius: 2000px;
           outline: none;
-          text-indent: 0.6rem; }
+          text-indent: 0.7rem; }
       body .mFlow .mFlow_from .mFlow_from_input > a {
         width: 1.40rem;
         height: 0.55rem;

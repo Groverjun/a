@@ -197,6 +197,7 @@ function chartArea(AllName,AllData,Alltime){
 		        data:AllName,
 		        left: '0',
 		        top:'0',
+		        itemGap:30,
 		        textStyle:{
 		        	fontSize:14,
 		        }
@@ -206,7 +207,7 @@ function chartArea(AllName,AllData,Alltime){
 		        left: '0',
 		        right:'20px',
 		        top:"40px",
-		        bottom: '40px',
+		        bottom: '50px',
 		        containLabel: true
 		    },
 		    xAxis : [
@@ -325,7 +326,7 @@ function mapFun(mapArr){
 	                show: false
 	            }
 	        },
-	        left:70,
+	        left:20,
 	        top:0,
 	        right:20,
 	        bottom:0,
