@@ -155,10 +155,11 @@ body {
     color: #fff;
     padding: 0.3rem 0.25rem 0.30rem; }
     body .mFlow .mFlow_title > h1 {
-      font-size: 0.42rem; }
+      font-size: 0.42rem;
+      font-weight: bold; }
     body .mFlow .mFlow_title > p {
       font-size: 0.28rem;
-      padding: 0.12rem 0; }
+      padding: 0.10rem 0; }
     body .mFlow .mFlow_title > .line {
       width: 0.53rem;
       height: 4px;
@@ -241,7 +242,8 @@ body {
     font-size: 0.24rem;
     color: #000000;
     text-transform: uppercase;
-    opacity: 0.8; }
+    opacity: 0.1;
+    font-weight: bold; }
   body .mFlow .title_body h1 {
     font-size: 0.36rem;
     color: #000000;
@@ -322,7 +324,7 @@ body {
   body .mFlow .pieChart .pieChart_bodyT {
     padding: 0 0.38rem 0.28rem; }
     body .mFlow .pieChart .pieChart_bodyT #pieChart2 {
-      border-top: 1px solid #ccc;
+      border-top: 1px solid #f3f2f2;
       height: 6.40rem; }
       body .mFlow .pieChart .pieChart_bodyT #pieChart2 canvas {
         top: -0.5rem !important; }

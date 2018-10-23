@@ -606,12 +606,77 @@ $(".brokenLine_title_abt a").click(function(){
 
 //折线图更新数据
 $("#brokenLineAbt").click(function(){
-	
+	    //折线图：
+	var AllName=['点击数','商机数','转化率'];//产品名
+	var AllData=[
+        {
+            name:'点击数',
+            type:'line',
+            smooth: true,
+            areaStyle: {
+            	normal:{
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 111, 0,0.1)'
+                    }, {
+                        offset: 0.9,
+                        color: 'rgba(255, 111, 0,0)'
+                    }])
+        
+                }
+            },
+            data:[0]
+        },
+        {
+            name:'商机数',
+            type:'line',
+            smooth: true,
+            areaStyle: {
+            	normal:{
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(34, 176, 56,0.1)'
+                    }, {
+                        offset: 0.9,
+                        color: 'rgba(34, 176, 56,0)'
+                    }])
+        
+                }
+            },
+            data:[0]
+        },
+        {
+            name:'转化率',
+            type:'line',
+            smooth: true,
+            areaStyle: {
+            	normal:{
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 108, 255,0.1)'
+                    }, {
+                        offset: 0.9,
+                        color: 'rgba(0, 108, 255,0)'
+                    }])
+        
+                }
+            },
+            data:[0]
+        },        
+	]//数据
+	var Alltime=[]
+    chartArea(AllName,AllData,Alltime);
+
 })
 
 //雷达图更新数据
 $("#radarChartAbt").click(function(){
-	
+		//雷达图
+	var val1=[0]
+	var val2=[0]
+	var max= [0
+	        ]
+	radarChart(val1,val2,max)
 })
 
 

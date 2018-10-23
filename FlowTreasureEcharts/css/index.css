@@ -310,7 +310,7 @@ body {
     background: #fff;
     overflow: hidden; }
     .moasFlow .radarChart .radarChart_body .radarChart_body_list {
-      width: 235px;
+      width: 270px;
       height: 645px;
       overflow: auto;
       border-radius: 5px;
@@ -496,7 +496,7 @@ body {
       padding: 46px 0px 0px 30px;
       margin-top: 34px; }
       .moasFlow .radarChart .radarChart_body .radarChart_body_list {
-        width: 150px;
+        width: 200px;
         height: 400px;
         padding: 20px 0 0px 30px; }
         .moasFlow .radarChart .radarChart_body .radarChart_body_list li {
